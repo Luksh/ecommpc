@@ -7,7 +7,7 @@ LABELS = (('hot','hot'),('new','new'),('sale','sale'),('','default'))
 
 class Category(models.Model):
     name = models.CharField(max_length= 400)
-    image = models.ImageField(upload_to = 'media')
+    image = models.CharField(max_length= 200)
     slug = models.CharField(max_length= 500, unique= True)
 
     def __str__(self):
