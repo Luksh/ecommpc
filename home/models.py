@@ -1,3 +1,4 @@
+from msilib.schema import Class
 from django.db import models
 
 # Create your models here.
@@ -26,6 +27,7 @@ class Slider(models.Model):
     image = models.ImageField(upload_to = 'media')
     title = models.TextField()
     rank = models.IntegerField(default= 1)
+    status = models.CharField(max_length=25, blank=True, choices= (('active','active'),('','default')))
     description = models.TextField(blank= True)
 
     def __str__(self):
