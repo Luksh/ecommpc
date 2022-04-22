@@ -1,5 +1,8 @@
 from msilib.schema import Class
 from django.db import models
+from django.db.models.deletion import CASCADE
+from django.urls import reverse
+from django.conf import settings
 
 # Create your models here.
 
@@ -55,11 +58,13 @@ class Contact(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length= 400)
     image = models.ImageField(upload_to = 'media')
+    price = models.IntegerField(default= 0)
     discounted_price = models.IntegerField()
     category = models.ForeignKey(Category, on_delete = models.CASCADE)
     subcategory = models.ForeignKey(SubCategory, on_delete = models.CASCADE)
     status = models.CharField(max_length= 50, choices= (('active','active'),('inactive','inactive')))
     labels = models.CharField(max_length= 50, choices= LABELS)
+    slug = models.CharField(max_length= 300, blank= True)
 
     def __str__(self):
         return self.name
