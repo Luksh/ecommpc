@@ -64,7 +64,8 @@ class Product(models.Model):
     subcategory = models.ForeignKey(SubCategory, on_delete = models.CASCADE)
     status = models.CharField(max_length= 50, choices= (('active','active'),('inactive','inactive')))
     labels = models.CharField(max_length= 50, choices= LABELS)
-    slug = models.CharField(max_length= 300, blank= True)
+    slug = models.CharField(max_length= 400, blank= True)
+    description = models.TextField(blank= True)
 
     def __str__(self):
         return self.name

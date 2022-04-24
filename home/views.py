@@ -8,6 +8,7 @@ app_name = "home"
 
 class BaseView(View):
     view = {}
+    view['categories'] = Category.objects.all()
 
 class HomeView(BaseView):
     def get(self, request):
@@ -21,3 +22,8 @@ class HomeView(BaseView):
         self.view['news'] = Product.objects.filter(labels= 'new', status= 'active')
 
         return render(request, 'shop-index.html', self.view)
+
+class ProductDetailView(BaseView):
+    def get(self, request, slug):
+        self.view['product_detail'] = Product.objects.filter(slug = slug)
+        return render(request, 'shop-item.html', self.view)

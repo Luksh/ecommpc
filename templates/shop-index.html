@@ -65,9 +65,10 @@ p {
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">{{new.name}}</a></h3>
+                  <h3><a href="detail/{{new.slug}}">{{new.name}}</a></h3>
                   {% if new.discounted_price > 0 %}
                   <div class="pi-price">Rs {{new.discounted_price}}</div>
+                  <em>Rs<span>{{new.price}}</span></em>
                   {% else %}
                   <div class="pi-price">Rs {{new.price}}</div>
                   {% endif %}
@@ -111,9 +112,10 @@ p {
                   </div>
                   <h3><a href="shop-item.html">{{hot.name}}</a></h3>
                   {% if hot.discounted_price > 0 %}
-                  <div class="pi-price">{{hot.discounted_price}}</div>
+                  <div class="pi-price">Rs {{hot.discounted_price}}</div>
+                  <em>Rs<span>{{hot.price}}</span></em>
                   {% else %}
-                  <div class="pi-price">{{hot.price}}</div>
+                  <div class="pi-price">Rs {{hot.price}}</div>
                   {% endif %}
                   <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                   <div class="sticker sticker-new"></div>
@@ -146,9 +148,10 @@ p {
                   </div>
                   <h3><a href="shop-item.html">{{sale.name}}</a></h3>
                   {% if sale.discounted_price > 0 %}
-                  <div class="pi-price">{{sale.discounted_price}}</div>
+                  <div class="pi-price">Rs {{sale.discounted_price}}</div>
+                  <em>Rs<span>{{sale.price}}</span></em>
                   {% else %}
-                  <div class="pi-price">{{sale.price}}</div>
+                  <div class="pi-price">Rs {{sale.price}}</div>
                   {% endif %}
                   <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
                 </div>
