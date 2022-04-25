@@ -40,6 +40,6 @@ class SubCategoryView(BaseView):
     def get(self, request, slug):
         subcat_id = SubCategory.objects.get(slug= slug).id
         subcat_name = SubCategory.objects.get(slug= slug).name
-        self.view['subCat_products'] = Product.objects.filter(subcategory_id = subcat_id)
-        self.view['subCategory_name'] = subcat_name
+        self.view['subcat_products'] = Product.objects.filter(subcategory_id = subcat_id)
+        self.view['subcategory_name'] = subcat_name
         return render(request, 'subcategory.html', self.view)
