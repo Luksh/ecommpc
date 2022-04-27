@@ -46,3 +46,12 @@ class SubCategoryView(BaseView):
         self.view['subcat_products'] = Product.objects.filter(subcategory_id = subcat_id)
         self.view['subcategory_name'] = subcat_name
         return render(request, 'subcategory.html', self.view)
+
+class SearchView(BaseView):
+    def get(self, request):
+        if request.method == 'GET':
+            query = request.GET['query']
+            self.view['search_query'] = query
+            self.view['search_product'] = Product.objects.filter(name__icontains = query)
+
+        return render(request, 'shop-search-result.html', self.view)
