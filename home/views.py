@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from .models import Contact
 from django.views.generic import View
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -90,3 +91,22 @@ def signup(request):
             return render(request, 'shop-standard-forms.html')
 
     return render(request, 'shop-standard-forms.html')
+
+def contact(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        subject = request.POST['subject']
+        message = request.POST['message']
+
+        data = Contact.objects.create(
+            name = name,
+            email = email,
+            phone = phone,
+            subject = subject,
+            message = message
+        )
+        data.save()
+
+    return render(request, 'shop-contacts.html')
