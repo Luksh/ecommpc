@@ -8,5 +8,9 @@ urlpatterns = [
     path('subcategory/<slug>', SubCategoryView.as_view(), name= 'subcategory'),
     path('search', SearchView.as_view(), name= 'search'),
     path('signup', signup, name= 'signup'),
-    path('contact', contact, name= 'contact')
+    path('contact', contact, name= 'contact'),
+    path('mycart', CartView.as_view(), name= 'mycart'),
+    path('add_to_cart', add_to_cart, name= 'add_to_cart'),
+    path('deletecart', deletecart, name= 'deletecart'),
+    path('reducecart', reducecart, name= 'reducecart')
 ]

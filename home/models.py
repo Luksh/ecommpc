@@ -69,3 +69,13 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+class Cart(models.Model):
+    user = models.CharField(max_length= 400)
+    slug = models.CharField(max_length= 400, blank= True)
+    items = models.ForeignKey(Category, on_delete = models.CASCADE)
+    quantity = models.IntegerField(default= 1)
+    checkout = models.BooleanField(default= False)
+
+    def __str__(self):
+        return self.name

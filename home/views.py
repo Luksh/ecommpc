@@ -110,3 +110,39 @@ def contact(request):
         data.save()
 
     return render(request, 'shop-contacts.html')
+
+class CartView(BaseView):
+    def get(request, slug):
+        self.view['cart_product'] = Cart.objects.filter(user= request.user.username, checkout= False)
+
+        return render(request, 'shop-shopping-cart.html', self.view)
+
+def add_to_cart(request, slug):
+    if Cart.objects.filter(slug= slug, user= request.user.username, checkout= False).exists():
+        quantity = Cart.objects.get(slug= slug, user= request.user.username, checkout= False)
+        quantity = quantity + 1
+        Cart.objects.filter(slug= slug, user= request.user.username, checkout= False).update(quantity = quantity)
+
+    else:
+        username = request.user.username
+        data = Cart.objects.create(
+            user = username,
+            slug = slug,
+            items = Product.objects.filter(slug= slug) [0]
+        )
+        data.save()
+
+    return redirect('/')
+
+def deletecart(request, slug):
+    if Cart.objects.filter(slug= slug, user= request.user.username, checkout= False).exists():
+        Cart.objects.filter(slug= slug, user= request.user.username, checkout= False).delete()
+
+    return redirect('/')
+
+def reducecart(request, slug):
+    if Cart.objects.filter(slug= slug, user= request.user.username, checkout= False).exists():
+        quantity = quantity - 1
+        Cart.objects.filter(slug= slug, user= request.user.username, checkout= False).update(quantity = quantity)
+
+    return redirect('/')
