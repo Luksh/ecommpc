@@ -72,7 +72,7 @@ p {
                   {% else %}
                   <div class="pi-price">Rs {{new.price}}</div>
                   {% endif %}
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                  <a href="/add_to_cart/{{new.slug}}" class="btn btn-default add2cart">Add to cart</a>
                   <div class="sticker sticker-sale"></div>
                 </div>
               </div>
@@ -117,7 +117,7 @@ p {
                   {% else %}
                   <div class="pi-price">Rs {{hot.price}}</div>
                   {% endif %}
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                  <a href="add_to_cart/{{hot.slug}}" class="btn btn-default add2cart">Add to cart</a>
                   <div class="sticker sticker-new"></div>
                 </div>
               </div>
@@ -153,7 +153,7 @@ p {
                   {% else %}
                   <div class="pi-price">Rs {{sale.price}}</div>
                   {% endif %}
-                  <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
+                  <a href="add_to_cart/{{sale.slug}}" class="btn btn-default add2cart">Add to cart</a>
                 </div>
               </div>
               {% endfor %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from .models import Contact
 from django.views.generic import View
@@ -112,14 +112,14 @@ def contact(request):
     return render(request, 'shop-contacts.html')
 
 class CartView(BaseView):
-    def get(request, slug):
+    def get(self, request):
         self.view['cart_product'] = Cart.objects.filter(user= request.user.username, checkout= False)
 
         return render(request, 'shop-shopping-cart.html', self.view)
 
 def add_to_cart(request, slug):
     if Cart.objects.filter(slug= slug, user= request.user.username, checkout= False).exists():
-        quantity = Cart.objects.get(slug= slug, user= request.user.username, checkout= False)
+        quantity = Cart.objects.get(slug= slug, user= request.user.username, checkout= False).quantity
         quantity = quantity + 1
         Cart.objects.filter(slug= slug, user= request.user.username, checkout= False).update(quantity = quantity)
 
@@ -132,17 +132,19 @@ def add_to_cart(request, slug):
         )
         data.save()
 
-    return redirect('/')
+    return redirect('/mycart')
 
 def deletecart(request, slug):
     if Cart.objects.filter(slug= slug, user= request.user.username, checkout= False).exists():
         Cart.objects.filter(slug= slug, user= request.user.username, checkout= False).delete()
 
-    return redirect('/')
+    return redirect('/mycart')
 
 def reducecart(request, slug):
     if Cart.objects.filter(slug= slug, user= request.user.username, checkout= False).exists():
-        quantity = quantity - 1
-        Cart.objects.filter(slug= slug, user= request.user.username, checkout= False).update(quantity = quantity)
+        quantity = Cart.objects.get(slug= slug, user= request.user.username, checkout= False).quantity
+        if quantity > 1:
+            quantity = quantity - 1
+            Cart.objects.filter(slug= slug, user= request.user.username, checkout= False).update(quantity = quantity)
 
-    return redirect('/')
+    return redirect('/mycart')

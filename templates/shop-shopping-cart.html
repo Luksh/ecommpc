@@ -22,65 +22,49 @@
                     <th class="goods-page-price">Unit price</th>
                     <th class="goods-page-total" colspan="2">Total</th>
                   </tr>
+                  
+                  {% for cart in cart_product %}
+                    
                   <tr>
                     <td class="goods-page-image">
-                      <a href="javascript:;"><img src="assets/pages/img/products/model3.jpg" alt="Berry Lace Dress"></a>
+                      <a href="javascript:;"><img src="{{cart.items.image.url}}" alt="Berry Lace Dress"></a>
                     </td>
                     <td class="goods-page-description">
-                      <h3><a href="javascript:;">Cool green dress with red bell</a></h3>
-                      <p><strong>Item 1</strong> - Color: Green; Size: S</p>
+                      <h3><a href="javascript:;">{{cart.items.name}}</a></h3>
                       <em>More info is here</em>
                     </td>
                     <td class="goods-page-ref-no">
-                     <a href=""><font size = "40"><left>-</left></font> </a>
+                     <a href="/reducecart/{{cart.slug}}"><font size = "40"><left>-</left></font> </a>
                     </td>
                     <td class="goods-page-quantity">
                       
                       <div class="product-quantity">
-                          <div id="product-quantity" type="text" value="1" readonly class="form-control input-sm">1</div>
+                          <div id="product-quantity" type="text" value="{{cart.quantity}}" readonly class="form-control input-sm">{{cart.quantity}}</div>
                          
                       </div>
                     </td>
                     <td class="goods-page-ref-no">
-                     <a href=""><font size = "40"><left>+</left></font> </a>
+                     <a href="/add_to_cart/{{cart.slug}}"><font size = "40"><left>+</left></font> </a>
                     </td>
                     <td class="goods-page-price">
-                      <strong><span>$</span>47.00</strong>
+                      
+                      {% if cart.items.discounted_price > 0 %}
+                      <strong><span>Rs</span>{{cart.items.discounted_price}}</strong>
+                      <em>Rs<span>{{cart.items.price}}</span></em>
+                      {% else %}
+                      <strong><span>Rs</span>{{cart.items.price}}</strong>
+                      {% endif %}
+                        
                     </td>
                     <td class="goods-page-total">
                       <strong><span>$</span>47.00</strong>
                     </td>
                     <td class="del-goods-col">
-                      <a class="del-goods" href="javascript:;">&nbsp;</a>
+                      <a class="del-goods" href="/deletecart/{[cart.slug]}">&nbsp;</a>
                     </td>
                   </tr>
-                  <tr>
-                    <td class="goods-page-image">
-                      <a href="javascript:;"><img src="assets/pages/img/products/model4.jpg" alt="Berry Lace Dress"></a>
-                    </td>
-                    <td class="goods-page-description">
-                      <h3><a href="javascript:;">Cool green dress with red bell</a></h3>
-                      <p><strong>Item 1</strong> - Color: Green; Size: S</p>
-                      <em>More info is here</em>
-                    </td>
-                    <td class="goods-page-ref-no">
-                      javc2133
-                    </td>
-                    <td class="goods-page-quantity">
-                      <div class="product-quantity">
-                          <input id="product-quantity2" type="text" value="1" readonly class="form-control input-sm">
-                      </div>
-                    </td>
-                    <td class="goods-page-price">
-                      <strong><span>$</span>47.00</strong>
-                    </td>
-                    <td class="goods-page-total">
-                      <strong><span>$</span>47.00</strong>
-                    </td>
-                    <td class="del-goods-col">
-                      <a class="del-goods" href="javascript:;">&nbsp;</a>
-                    </td>
-                  </tr>
+                  {% endfor %}
+                    
                 </table>
                 </div>
 
