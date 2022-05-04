@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from .models import *
-from .models import Contact
 from django.views.generic import View
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -108,6 +107,7 @@ def contact(request):
             message = message
         )
         data.save()
+        return render(request, 'shop-contacts.html', {"message":"Success"})
 
     return render(request, 'shop-contacts.html')
 
@@ -148,3 +148,13 @@ def reducecart(request, slug):
             Cart.objects.filter(slug= slug, user= request.user.username, checkout= False).update(quantity = quantity)
 
     return redirect('/mycart')
+
+# ----------API----------
+
+from .serializers import *
+from rest_framework import viewsets
+
+# ViewSets define the view behavior.
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
