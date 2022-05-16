@@ -1,145 +1,231 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
-    <div class="main">
-      <div class="container">
-        <ul class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="">Pages</a></li>
-            <li class="active">Contact</li>
+<div class="main">
+  <div class="container">
+    <ul class="breadcrumb">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="">Pages</a></li>
+      <li class="active">Contact</li>
+    </ul>
+    <!-- BEGIN SIDEBAR & CONTENT -->
+    <div class="row margin-bottom-40">
+      <!-- BEGIN SIDEBAR -->
+      <div class="sidebar col-md-3 col-sm-3">
+        <ul class="list-group margin-bottom-25 sidebar-menu">
+          <li class="list-group-item clearfix">
+            <a href="javascript:;"
+              ><i class="fa fa-angle-right"></i> Login/Register</a
+            >
+          </li>
+          <li class="list-group-item clearfix">
+            <a href="javascript:;"
+              ><i class="fa fa-angle-right"></i> Restore Password</a
+            >
+          </li>
+          <li class="list-group-item clearfix">
+            <a href="javascript:;"
+              ><i class="fa fa-angle-right"></i> My account</a
+            >
+          </li>
+          <li class="list-group-item clearfix">
+            <a href="javascript:;"
+              ><i class="fa fa-angle-right"></i> Address book</a
+            >
+          </li>
+          <li class="list-group-item clearfix">
+            <a href="javascript:;"
+              ><i class="fa fa-angle-right"></i> Wish list</a
+            >
+          </li>
+          <li class="list-group-item clearfix">
+            <a href="javascript:;"><i class="fa fa-angle-right"></i> Returns</a>
+          </li>
+          <li class="list-group-item clearfix">
+            <a href="javascript:;"
+              ><i class="fa fa-angle-right"></i> Newsletter</a
+            >
+          </li>
         </ul>
-        <!-- BEGIN SIDEBAR & CONTENT -->
-        <div class="row margin-bottom-40">
-          <!-- BEGIN SIDEBAR -->
-          <div class="sidebar col-md-3 col-sm-3">
-            <ul class="list-group margin-bottom-25 sidebar-menu">
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Login/Register</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Restore Password</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> My account</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Address book</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Wish list</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Returns</a></li>
-              <li class="list-group-item clearfix"><a href="javascript:;"><i class="fa fa-angle-right"></i> Newsletter</a></li>
-            </ul>
 
-            <h2>Our Contacts</h2>
-            <address>
-              35, Lorem Lis Street, Park Ave<br>
-              California, US<br>
-              <abbr title="Phone">P:</abbr> 300 323 3456<br>
-            </address>
-            <address>
-              <strong>Email</strong><br>
-              <a href="mailto:info@metronic.com">info@metronic.com</a><br>
-              <a href="mailto:support@metronic.com">support@metronic.com</a>
-            </address>
-            <ul class="social-icons margin-bottom-10">
-              <li><a href="javascript:;" data-original-title="facebook" class="facebook"></a></li>
-              <li><a href="javascript:;" data-original-title="github" class="github"></a></li>
-              <li><a href="javascript:;" data-original-title="Goole Plus" class="googleplus"></a></li>
-              <li><a href="javascript:;" data-original-title="linkedin" class="linkedin"></a></li>
-              <li><a href="javascript:;" data-original-title="rss" class="rss"></a></li>
-            </ul>
-          </div>
-          <!-- END SIDEBAR -->
-
-          <!-- BEGIN CONTENT -->
-          <div class="col-md-9 col-sm-9">
-            <h1>Contact</h1>
-            <div class="content-page">
-              <div id="map" class="gmaps margin-bottom-40" style="height:400px;"></div>
-
-              <h2>Contact Form</h2>
-              <p>Please tell about yourself</p>
-              
-              <!-- BEGIN FORM-->
-              <form action="#" class="default-form" role="form" method="POST">
-                {% csrf_token %}
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" name = "name" id="name">
-                </div>
-                <div class="form-group">
-                  <label for="email">Email<span class="require">*</span></label>
-                  <input type="email" class="form-control" name = "email" id="email">
-                </div>
-                <div class="form-group">
-                  <label for="name">Phone</label>
-                  <input type="text" class="form-control" name = "phone" id="phone">
-                </div>
-                <div class="form-group">
-                  <label for="name">Subject</label>
-                  <input type="text" class="form-control" name = "subject" id="subject">
-                </div>
-                <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea class="form-control" rows="8" name = "message" id="message"></textarea>
-                </div>
-                <div class="padding-top-20">                  
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
-              <!-- END FORM-->          
-            </div>
-          </div>
-          <!-- END CONTENT -->
-        </div>
-        <!-- END SIDEBAR & CONTENT -->
+        <h2>Our Contacts</h2>
+        <address>
+          35, Lorem Lis Street, Park Ave<br />
+          California, US<br />
+          <abbr title="Phone">P:</abbr> 300 323 3456<br />
+        </address>
+        <address>
+          <strong>Email</strong><br />
+          <a href="mailto:info@metronic.com">info@metronic.com</a><br />
+          <a href="mailto:support@metronic.com">support@metronic.com</a>
+        </address>
+        <ul class="social-icons margin-bottom-10">
+          <li>
+            <a
+              href="javascript:;"
+              data-original-title="facebook"
+              class="facebook"
+            ></a>
+          </li>
+          <li>
+            <a
+              href="javascript:;"
+              data-original-title="github"
+              class="github"
+            ></a>
+          </li>
+          <li>
+            <a
+              href="javascript:;"
+              data-original-title="Goole Plus"
+              class="googleplus"
+            ></a>
+          </li>
+          <li>
+            <a
+              href="javascript:;"
+              data-original-title="linkedin"
+              class="linkedin"
+            ></a>
+          </li>
+          <li>
+            <a href="javascript:;" data-original-title="rss" class="rss"></a>
+          </li>
+        </ul>
       </div>
-    </div>
+      <!-- END SIDEBAR -->
 
-    <!-- BEGIN BRANDS -->
-    <div class="brands">
-      <div class="container">
-            <div class="owl-carousel owl-carousel6-brands">
-              <a href="shop-product-list.html"><img src="assets/pages/img/brands/canon.jpg" alt="canon" title="canon"></a>
-              <a href="shop-product-list.html"><img src="assets/pages/img/brands/esprit.jpg" alt="esprit" title="esprit"></a>
-              <a href="shop-product-list.html"><img src="assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a>
-              <a href="shop-product-list.html"><img src="assets/pages/img/brands/next.jpg" alt="next" title="next"></a>
-              <a href="shop-product-list.html"><img src="assets/pages/img/brands/puma.jpg" alt="puma" title="puma"></a>
-              <a href="shop-product-list.html"><img src="assets/pages/img/brands/zara.jpg" alt="zara" title="zara"></a>
-              <a href="shop-product-list.html"><img src="assets/pages/img/brands/canon.jpg" alt="canon" title="canon"></a>
-              <a href="shop-product-list.html"><img src="assets/pages/img/brands/esprit.jpg" alt="esprit" title="esprit"></a>
-              <a href="shop-product-list.html"><img src="assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a>
-              <a href="shop-product-list.html"><img src="assets/pages/img/brands/next.jpg" alt="next" title="next"></a>
-              <a href="shop-product-list.html"><img src="assets/pages/img/brands/puma.jpg" alt="puma" title="puma"></a>
-              <a href="shop-product-list.html"><img src="assets/pages/img/brands/zara.jpg" alt="zara" title="zara"></a>
-            </div>
-        </div>
-    </div>
-    <!-- END BRANDS -->
+      <!-- BEGIN CONTENT -->
+      <div class="col-md-9 col-sm-9">
+        <h1>Contact</h1>
+        <div class="content-page">
+          <div
+            id="map"
+            class="gmaps margin-bottom-40"
+            style="height: 400px"
+          ></div>
 
-    <!-- BEGIN STEPS -->
-    <div class="steps-block steps-block-red">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 steps-block-col">
-            <i class="fa fa-truck"></i>
-            <div>
-              <h2>Free shipping</h2>
-              <em>Express delivery withing 3 days</em>
+          <h2>Contact Form</h2>
+          <p>Please tell about yourself</p>
+
+          <!-- BEGIN FORM-->
+          <form action="#" class="default-form" role="form" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" name="name" id="name" />
             </div>
-            <span>&nbsp;</span>
-          </div>
-          <div class="col-md-4 steps-block-col">
-            <i class="fa fa-gift"></i>
-            <div>
-              <h2>Daily Gifts</h2>
-              <em>3 Gifts daily for lucky customers</em>
+            <div class="form-group">
+              <label for="email">Email<span class="require">*</span></label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+              />
             </div>
-            <span>&nbsp;</span>
-          </div>
-          <div class="col-md-4 steps-block-col">
-            <i class="fa fa-phone"></i>
-            <div>
-              <h2>477 505 8877</h2>
-              <em>24/7 customer care available</em>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                class="form-control"
+                rows="8"
+                name="message"
+                id="message"
+              ></textarea>
             </div>
-          </div>
+            <div class="padding-top-20">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+          <!-- END FORM-->
         </div>
       </div>
+      <!-- END CONTENT -->
     </div>
-    <!-- END STEPS -->
+    <!-- END SIDEBAR & CONTENT -->
+  </div>
+</div>
+
+<!-- BEGIN BRANDS -->
+<div class="brands">
+  <div class="container">
+    <div class="owl-carousel owl-carousel6-brands">
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/canon.jpg" alt="canon" title="canon"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img
+          src="assets/pages/img/brands/esprit.jpg"
+          alt="esprit"
+          title="esprit"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/gap.jpg" alt="gap" title="gap"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/next.jpg" alt="next" title="next"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/puma.jpg" alt="puma" title="puma"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/zara.jpg" alt="zara" title="zara"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/canon.jpg" alt="canon" title="canon"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img
+          src="assets/pages/img/brands/esprit.jpg"
+          alt="esprit"
+          title="esprit"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/gap.jpg" alt="gap" title="gap"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/next.jpg" alt="next" title="next"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/puma.jpg" alt="puma" title="puma"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/zara.jpg" alt="zara" title="zara"
+      /></a>
+    </div>
+  </div>
+</div>
+<!-- END BRANDS -->
+
+<!-- BEGIN STEPS -->
+<div class="steps-block steps-block-red">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 steps-block-col">
+        <i class="fa fa-truck"></i>
+        <div>
+          <h2>Free shipping</h2>
+          <em>Express delivery withing 3 days</em>
+        </div>
+        <span>&nbsp;</span>
+      </div>
+      <div class="col-md-4 steps-block-col">
+        <i class="fa fa-gift"></i>
+        <div>
+          <h2>Daily Gifts</h2>
+          <em>3 Gifts daily for lucky customers</em>
+        </div>
+        <span>&nbsp;</span>
+      </div>
+      <div class="col-md-4 steps-block-col">
+        <i class="fa fa-phone"></i>
+        <div>
+          <h2>477 505 8877</h2>
+          <em>24/7 customer care available</em>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END STEPS -->
 
 {% endblock %}

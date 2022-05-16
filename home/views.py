@@ -1,8 +1,10 @@
 from django.core.mail import EmailMessage
 from email.message import EmailMessage
 from .serializers import *
-from rest_framework import viewsets, generics
+from rest_framework import viewsets, generics, status
 from rest_framework.filters import OrderingFilter, SearchFilter
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from django_filters.rest_framework import DjangoFilterBackend
 from django.shortcuts import render, redirect
 from .models import *
@@ -180,7 +182,7 @@ def reducecart(request, slug):
     return redirect('/mycart')
 
 
-my_email = ''
+my_email = 'laxmanmaharjan2043@gmail.com'
 
 
 def contact(request):
@@ -206,8 +208,6 @@ def contact(request):
     return render(request, 'shop-contacts.html')
 
 # ----------API----------
-
-
 # ViewSets define the view behavior.
 
 
@@ -224,3 +224,36 @@ class ProductFilterView(generics.ListAPIView):
     filter_fields = ['id', 'category', 'subcategory', 'labels', 'status']
     ordering_fields = ['id', 'price', 'name']
     search_fields = ['name', 'description']
+
+
+class ProductCRUDViewSet(APIView):
+    def get_object(self, pk):
+        try:
+            return Product.objects.get(pk=pk)
+        except:
+            print('This id is not in database')
+
+    def get(self, request, pk):
+        product = self.get_object(pk)
+        serializer = ProductSerializer(product)
+        return Response(serializer.data)
+
+    def post(self, request, pk):
+        serializer = ProductSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def put(self, request, pk):
+        product = self.get_object(pk)
+        serializer = ProductSerializer(product, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        product = self.get_object(pk)
+        product.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

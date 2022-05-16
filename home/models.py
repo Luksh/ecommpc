@@ -54,8 +54,6 @@ class Ad(models.Model):
 class Contact(models.Model):
     name = models.CharField(max_length=400)
     email = models.EmailField(max_length=300, blank=True)
-    phone = models.CharField(blank=True, max_length=200)
-    subject = models.TextField()
     message = models.TextField()
 
     def __str__(self):
