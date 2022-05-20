@@ -1,6 +1,4 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
 <div class="main">
   <div class="container">
@@ -14,22 +12,46 @@
       <!-- BEGIN SIDEBAR -->
       <div class="sidebar col-md-3 col-sm-5">
         <ul class="list-group margin-bottom-25 sidebar-menu">
-          <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
-              Ladies</a></li>
-          <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
-              Kids</a></li>
-          <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
-              Accessories</a></li>
-          <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
-              Sports</a></li>
-          <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
-              Brands</a></li>
-          <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i>
-              Electronics</a></li>
-          <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Home
-              &amp; Garden</a></li>
-          <li class="list-group-item clearfix"><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Custom
-              Link</a></li>
+          <li class="list-group-item clearfix">
+            <a href="shop-product-list.html"
+              ><i class="fa fa-angle-right"></i>Ladies</a
+            >
+          </li>
+          <li class="list-group-item clearfix">
+            <a href="shop-product-list.html"
+              ><i class="fa fa-angle-right"></i>Kids</a
+            >
+          </li>
+          <li class="list-group-item clearfix">
+            <a href="shop-product-list.html"
+              ><i class="fa fa-angle-right"></i>Accessories</a
+            >
+          </li>
+          <li class="list-group-item clearfix">
+            <a href="shop-product-list.html"
+              ><i class="fa fa-angle-right"></i>Sports</a
+            >
+          </li>
+          <li class="list-group-item clearfix">
+            <a href="shop-product-list.html"
+              ><i class="fa fa-angle-right"></i>Brands</a
+            >
+          </li>
+          <li class="list-group-item clearfix">
+            <a href="shop-product-list.html"
+              ><i class="fa fa-angle-right"></i>Electronics</a
+            >
+          </li>
+          <li class="list-group-item clearfix">
+            <a href="shop-product-list.html"
+              ><i class="fa fa-angle-right"></i>Home &amp; Garden</a
+            >
+          </li>
+          <li class="list-group-item clearfix">
+            <a href="shop-product-list.html"
+              ><i class="fa fa-angle-right"></i>Custom Link</a
+            >
+          </li>
         </ul>
       </div>
       <!-- END SIDEBAR -->
@@ -38,58 +60,91 @@
       <div class="col-md-9 col-sm-7">
         <h1>Login</h1>
         <div class="content-form-page">
-          <form role="form" method="POST" class="form-horizontal form-without-legend">
-            {% csrf_token %}
-
-            {% for message in messages %}
+          <form
+            role="form"
+            method="POST"
+            class="form-horizontal form-without-legend"
+          >
+            {% csrf_token %} {% for message in messages %}
             <center>
-              <font color="red"></font>
+              <font color="red">{{message}}</font>
             </center>
             {% endfor %}
 
             <div class="form-group">
-              <label class="col-lg-2 control-label" for="telephone">Username<span class="require">*</span></label>
-              <div class="col-lg-8">
-                {{form.username}}
-              </div>
+              <label class="col-lg-2 control-label" for="username"
+                >Username<span class="require">*</span></label
+              >
+              <div class="col-lg-8">{{form.username}}</div>
             </div>
             <div class="form-group">
-              <label class="col-lg-2 control-label" for="password">Password<span class="require">*</span></label>
-              <div class="col-lg-8">
-                {{form.password}}
+              <label class="col-lg-2 control-label" for="password"
+                >Password<span class="require">*</span></label
+              >
+              <div class="col-lg-8">{{form.password}}</div>
+            </div>
+            <div class="row">
+              <div
+                class="col-lg-8 col-md-offset-2 padding-left-0 padding-top-20"
+              >
+                <button class="btn btn-primary" type="submit">Login</button>
               </div>
             </div>
+          </form>
         </div>
-        <div class="row">
-          <div class="col-lg-8 col-md-offset-2 padding-left-0 padding-top-20">
-            <button class="btn btn-primary" type="submit">Login</button>
-          </div>
-        </div>
-        </form>
       </div>
+      <!-- END CONTENT -->
     </div>
-    <!-- END CONTENT -->
+    <!-- END SIDEBAR & CONTENT -->
   </div>
-  <!-- END SIDEBAR & CONTENT -->
-</div>
 </div>
 
 <!-- BEGIN BRANDS -->
 <div class="brands">
   <div class="container">
     <div class="owl-carousel owl-carousel6-brands">
-      <a href="shop-product-list.html"><img src="assets/pages/img/brands/canon.jpg" alt="canon" title="canon"></a>
-      <a href="shop-product-list.html"><img src="assets/pages/img/brands/esprit.jpg" alt="esprit" title="esprit"></a>
-      <a href="shop-product-list.html"><img src="assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a>
-      <a href="shop-product-list.html"><img src="assets/pages/img/brands/next.jpg" alt="next" title="next"></a>
-      <a href="shop-product-list.html"><img src="assets/pages/img/brands/puma.jpg" alt="puma" title="puma"></a>
-      <a href="shop-product-list.html"><img src="assets/pages/img/brands/zara.jpg" alt="zara" title="zara"></a>
-      <a href="shop-product-list.html"><img src="assets/pages/img/brands/canon.jpg" alt="canon" title="canon"></a>
-      <a href="shop-product-list.html"><img src="assets/pages/img/brands/esprit.jpg" alt="esprit" title="esprit"></a>
-      <a href="shop-product-list.html"><img src="assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a>
-      <a href="shop-product-list.html"><img src="assets/pages/img/brands/next.jpg" alt="next" title="next"></a>
-      <a href="shop-product-list.html"><img src="assets/pages/img/brands/puma.jpg" alt="puma" title="puma"></a>
-      <a href="shop-product-list.html"><img src="assets/pages/img/brands/zara.jpg" alt="zara" title="zara"></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/canon.jpg" alt="canon" title="canon"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img
+          src="assets/pages/img/brands/esprit.jpg"
+          alt="esprit"
+          title="esprit"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/gap.jpg" alt="gap" title="gap"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/next.jpg" alt="next" title="next"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/puma.jpg" alt="puma" title="puma"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/zara.jpg" alt="zara" title="zara"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/canon.jpg" alt="canon" title="canon"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img
+          src="assets/pages/img/brands/esprit.jpg"
+          alt="esprit"
+          title="esprit"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/gap.jpg" alt="gap" title="gap"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/next.jpg" alt="next" title="next"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/puma.jpg" alt="puma" title="puma"
+      /></a>
+      <a href="shop-product-list.html"
+        ><img src="assets/pages/img/brands/zara.jpg" alt="zara" title="zara"
+      /></a>
     </div>
   </div>
 </div>

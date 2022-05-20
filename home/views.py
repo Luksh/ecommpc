@@ -207,6 +207,7 @@ def contact(request):
 
     return render(request, 'shop-contacts.html')
 
+
 # ----------API----------
 # ViewSets define the view behavior.
 
