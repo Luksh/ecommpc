@@ -82,6 +82,7 @@
             </div>
 
             <div class="shopping-total">
+              {% for cart in cart_product %}
               <ul>
                 <li>
                   <em>Sub total</em>
@@ -96,6 +97,7 @@
                   <strong class="price"><span>$</span>50.00</strong>
                 </li>
               </ul>
+              {% endfor %}
             </div>
           </div>
           <button class="btn btn-default" type="submit">

@@ -539,7 +539,7 @@
               <div class="panel-body row">
                 <div class="col-md-12 clearfix">
                   <div class="table-wrapper-responsive">
-                    <table>
+                    <table summary="Shopping Cart">
                       <tr>
                         <th class="checkout-image">Image</th>
                         <th class="checkout-description">Description</th>
@@ -548,6 +548,8 @@
                         <th class="checkout-price">Price</th>
                         <th class="checkout-total">Total</th>
                       </tr>
+
+                      {% for cart in cart_product %}
                       <tr>
                         <td class="checkout-image">
                           <a href="javascript:;"
@@ -574,32 +576,7 @@
                           <strong><span>$</span>47.00</strong>
                         </td>
                       </tr>
-                      <tr>
-                        <td class="checkout-image">
-                          <a href="javascript:;"
-                            ><img
-                              src="assets/pages/img/products/model4.jpg"
-                              alt="Berry Lace Dress"
-                          /></a>
-                        </td>
-                        <td class="checkout-description">
-                          <h3>
-                            <a href="javascript:;"
-                              >Cool green dress with red bell</a
-                            >
-                          </h3>
-                          <p><strong>Item 1</strong> - Color: Green; Size: S</p>
-                          <em>More info is here</em>
-                        </td>
-                        <td class="checkout-model">RES.193</td>
-                        <td class="checkout-quantity">1</td>
-                        <td class="checkout-price">
-                          <strong><span>$</span>47.00</strong>
-                        </td>
-                        <td class="checkout-total">
-                          <strong><span>$</span>47.00</strong>
-                        </td>
-                      </tr>
+                      {% endfor %}
                     </table>
                   </div>
                   <div class="checkout-total-block">
